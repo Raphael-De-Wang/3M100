@@ -1,0 +1,42 @@
+#!/usr/bin/env python
+
+import math
+
+class AI (object) :
+
+    def __init__(self): 
+        self.scale_roof = 100
+        self.scale_floor = 0
+        
+    def ask(self): 
+        print input("Is it bigger than {0} ? (Yes/No)".format(str(self.num)))
+        self.userInput = input("Is it bigger than {0} ? (Yes/No)".format(str(self.num)))
+        
+    def update(self):
+        if self.userInput[0] == 'Y' or self.userInput[0] == 'y' :
+            self.scale_floor = self.num
+        elif self.userInput[0] == 'N' or self.userInput[0] == 'n' :
+            self.scale_roof  = self.num
+        else :
+            print "Your input is invalid ! "
+            self.ask()
+            
+    def dichotomie(self):
+        self.num = math.trunc(( self.scale_roof + self.scale_floor ) / 2)
+        
+
+    def is_success(self):
+        if self.scale_roof == self.scale_floor :
+            return True
+        else :
+            return False
+        
+    def talk(self):
+        while not self.is_success() :
+            self.dichotomie()
+            self.ask()
+            self.update()
+
+
+a = AI()
+a.talk()
