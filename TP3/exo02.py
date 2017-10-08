@@ -28,11 +28,11 @@ class V(Suite) :
             print "n should not bigger than {0} !".format(str(self.K))
             return
         else :
-            super(V,self).get(n)
+            return super(V,self).get(n)
 
 # test
-v = V(1,100)
-print v.get(10)
-v.show()
+# v = V(1,100)
+# print v.get(10)
+# v.show()
 
 

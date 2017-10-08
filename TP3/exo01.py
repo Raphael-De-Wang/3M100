@@ -16,10 +16,6 @@ class Suite(object) :
     def u_ext(self, n) :
         pass
 
-    @abc.abstractmethod        
-    def get(self,n) :
-        return
-        
     def show(self) :
         print self.suite_lst
 
@@ -49,9 +45,9 @@ class Un(Suite) :
 
                 
 # test
-un = Un()
-print un.get(10)
-un.show()
+# un = Un()
+# print un.get(10)
+# un.show()
 
 ############################
 ##  ##   question 2   ##  ##
@@ -74,8 +70,8 @@ class UV(Suite) :
 
                 
 # test
-uv = UV()
-print uv.get(100)
+# uv = UV()
+# print uv.get(100)
 # uv.show()
 
         
