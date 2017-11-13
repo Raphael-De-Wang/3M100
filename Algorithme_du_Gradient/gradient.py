@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+
+import abc
+import numpy
+
+class Gradient(object):
+    __metaclass__ = abc.ABCMeta
+    
+    # @abc.abstractmethod
+    def algo_gradient(self, gradient_f, tau, x_0, n_iterations):
+        x = [x_0]
+        for i in range(n_iterations):
+            new_x = x[-1] - tau * gradient_f(x[-1])
+            x.append(new_x)
+        return x
+
+
+

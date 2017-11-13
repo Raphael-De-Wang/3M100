@@ -1,0 +1,29 @@
+#!/usr/bin/env python
+
+import numpy
+
+# private ref
+import donnee
+import gradient
+
+
+#  la variation totale (TV) lissee d’un vecteur
+def tv_lissee(X, delta=10**-5):
+    X = numpy.array(X)
+    X_TV_delta = numpy.sum(((X[1:] - X[:-1])**2 + delta)**0.5)
+    return X_TV_delta
+
+def tv_lissee_dp(X, delta=10**-5):
+    def __tv_lissee_dp(x1,x2,delta):
+        return (x1 - x2) / ((delta + (x1 - x2)**2) ** 0.5)
+        
+    X = numpy.array(X)
+    n = len(X)
+    X_TV_delta_D = [ x for i in range(n)
+                     if i == 0 x = __tv_lissee_dp(X[0],X[1],delta)
+                     elif i == n - 1 x = __tv_lissee_dp(X[n-1],X[n-2],delta)
+                     else x = __tv_lissee_dp(X[i],X[i+1],delta)
+                     + __tv_lissee_dp(X[i],X[i-1],delta) ]
+                 
+    return X_TV_delta_D
+    
