@@ -19,7 +19,7 @@ class Attracteur(object) :
         if n is None :
             n = self.n
         p = Population(mu,x0,n)
-        em = p.evlt(n,m)
+        em = p.evlt()[m:]
         return zip(em[:-1],em[1:])
 
     def plot_evol_marche_mu(self, mu, x0 = None, m = None, n = None):

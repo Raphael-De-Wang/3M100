@@ -13,5 +13,5 @@ from attracteur import Attracteur
 # bif = Bifurcation(np.linspace(0,4,1000),10,20)
 # bif.plot_bif()
 
-att = Attracteur([3.9], 200, 1000)
+att = Attracteur([3.9], 200, 400)
 att.plot_evol_marche_mu(3.9)
