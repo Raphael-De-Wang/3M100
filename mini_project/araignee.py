@@ -14,7 +14,7 @@ class Araignee(object) :
         if pplt is None :
             pplt = self.pplt
             
-        plt_vlt = pplt.evlt()
+        plt_vlt = pplt.evol()
         cord = [(plt_vlt[0],0)]
         for n in range(1, n_steps):
             if (plt_vlt[n-1],plt_vlt[n]) not in cord :
