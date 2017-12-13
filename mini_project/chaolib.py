@@ -42,6 +42,8 @@ class PPlt(object) :
         self.x0 = x
     def setMu(self, mu):
         self.mu = mu
+    def setN(self, N) :
+        self.N = N
     def setM(self, M) :
         self.M = M
     def setF(self, f):
@@ -141,6 +143,9 @@ class Araignee(Etu_f) :
         cord = self.araignee(p)
         cord = np.array(cord)
         plt.plot(cord[:,0],cord[:,1],'r')
+        plt.xlim(0,1)
+        plt.ylim(0,1)
+        plt.title("Diagramme Araignee")
         return fig
 
     def draw_fi(self, p = None):
@@ -150,9 +155,9 @@ class Araignee(Etu_f) :
 
     def draw(self, p = None):
         fig = plt.figure(self.ft)
-        self.draw_agn(p)
-        self.draw_fi(p)
         super(Araignee,self).draw()
+        self.draw_fi(p)
+        self.draw_agn(p)
         return fig
 
         
@@ -176,9 +181,9 @@ class Bifurcation(Draw):
         plt.scatter(mu_x[:,0],mu_x[:,1],s=1,edgecolor='none',c=mu_x[:,0])
         plt.xlim(0,4)
         plt.ylim(0,1)
-        plt.xlabel("\mu")
+        plt.xlabel('$\mu$')
         plt.ylabel("Population")
-        plt.title()
+        plt.title("Diagramme de Bifurcation")
         return fig
 
 
@@ -192,9 +197,17 @@ class Attr(Draw) :
             p = self.p
         em = self.evol(p)
         em = np.array(em)
-        plt.plot(em[:,0],em[:,1])
+        if p.mu > 0 and p.mu < 3 :
+            plt.plot(em[:,0],em[:,1],"-x",label="mu="+str(p.mu))
+        else:
+            plt.plot(em[:,0],em[:,1],label="mu="+str(p.mu))            
         plt.xlim(0,1)
         plt.ylim(0,1)
+        plt.title("Attracteur")
+        plt.legend()
+        
+class AttrRand(Attr) :
+    def evol(self, p):
+        X0 = np.random.rand(p.N)
+        return zip(X0,p.f(X0,p.mu))
 
-    def plot_evol_marche(self, L, x0 = None, m = None, n = None):
-        pass
