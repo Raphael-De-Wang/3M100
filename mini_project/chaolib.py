@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 
 class PPlt(object) :
-    def __init__(self,x0,mu,N,M=1,f=lambda x,mu:mu*x*(1.-x)):
+    def __init__(self,x0,mu,N,M=1):
         if mu >= 0 and mu <= 4 :
             self.mu = mu
         else :
@@ -18,7 +18,7 @@ class PPlt(object) :
             self.N = N
         else :
             raise ValueError('The time is discrete, should be a positive integer')
-        self.f = f
+        self.f = lambda x,mu:mu*x*(1.-x)
         self.M = M
         self.L = []
             

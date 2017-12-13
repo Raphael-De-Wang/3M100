@@ -22,5 +22,5 @@ for mu in [3.8,3.5,3.2,2.5,1.5] :
     p.setMu(mu)
     attR = AttrRand(p,8)
     # attR.show()
-    # attR.show("att_rand_cmp.jpg")
+    attR.show("att_rand_cmp.jpg")
 
