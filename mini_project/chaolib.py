@@ -198,9 +198,9 @@ class Attr(Draw) :
         em = self.evol(p)
         em = np.array(em)
         if p.mu > 0 and p.mu < 3 :
-            plt.plot(em[:,0],em[:,1],"-x",label="mu="+str(p.mu))
+            plt.plot(em[:,0],em[:,1],"x",label="mu="+str(p.mu))
         else:
-            plt.plot(em[:,0],em[:,1],label="mu="+str(p.mu))            
+            plt.plot(em[:,0],em[:,1],"*",label="mu="+str(p.mu))            
         plt.xlim(0,1)
         plt.ylim(0,1)
         plt.title("Attracteur")

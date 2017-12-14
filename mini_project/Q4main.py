@@ -13,7 +13,7 @@ argn.show("araignee.jpg", argn.draw_agn)
 argn.show(save="diag_mu.jpg")
 
 # Q3.
-for mu in [2.5,3.2,3.5,3.8] :
+for mu in [0.8,1.5,2.5,3.2,3.5,3.8] :
     p.setMu(mu)
     argn = Araignee(p,mu*10)
     # argn.show()

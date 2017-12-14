@@ -11,14 +11,14 @@ att.show("att.jpg")
 # Q2.
 p.setM(100)
 p.setN(1000)
-for mu in [3.8,3.5,3.2,2.5] :
+for mu in [3.8,3.55,3.5,3.2,2.5,0.8] :
     p.setMu(mu)
     att = Attr(p,6)
     # att.show()
     att.show("att_cmp.jpg")
 
 # Q3.
-for mu in [3.8,3.5,3.2,2.5,1.5] :
+for mu in [3.8,3.55,3.5,3.2,2.5,1.5,0.8] :
     p.setMu(mu)
     attR = AttrRand(p,8)
     # attR.show()
